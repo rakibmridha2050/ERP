@@ -1,0 +1,241 @@
+<div class="container mt-5">
+  <div class="card shadow-lg rounded-3">
+    <div class="card-header text-white bg-primary">
+      <h3 class="mb-0"> Student Admission Form</h3>
+    </div>
+    <div class="card-body p-4">
+      <form [formGroup]="admissionForm" (ngSubmit)="onSubmit()">
+
+        <!-- Student Info -->
+        <h5 class="text-secondary mb-3"> Student Information</h5>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label class="form-label">First Name</label>
+            <input type="text" class="form-control" formControlName="firstName" placeholder="Enter First Name">
+            <div *ngIf="admissionForm.get('firstName')?.touched && admissionForm.get('firstName')?.invalid"
+              class="text-danger small">
+              <span *ngIf="admissionForm.get('firstName')?.errors?.['required']">First Name is required.</span>
+              <span *ngIf="admissionForm.get('firstName')?.errors?.['minlength']">At least 2 characters required.</span>
+              <span *ngIf="admissionForm.get('firstName')?.errors?.['maxlength']">Maximum 30 characters allowed.</span>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Last Name</label>
+            <input type="text" class="form-control" formControlName="lastName" placeholder="Enter Last Name">
+           <div *ngIf="admissionForm.get('lastName')?.touched && admissionForm.get('lastName')?.invalid" class="text-danger small">
+      <span *ngIf="admissionForm.get('lastName')?.errors?.['required']">Last Name is required.</span>
+      <span *ngIf="admissionForm.get('lastName')?.errors?.['minlength']">At least 2 characters required.</span>
+      <span *ngIf="admissionForm.get('lastName')?.errors?.['maxlength']">Maximum 30 characters allowed.</span>
+    </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <label class="form-label">Gender</label>
+            <select class="form-select" formControlName="gender">
+              <option value="">--Select Gender--</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Other</option>
+            </select>
+          <div *ngIf="admissionForm.get('gender')?.touched && admissionForm.get('gender')?.invalid" class="text-danger small">
+      Gender is required.
+    </div>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Date of Birth</label>
+            <input type="date" class="form-control" formControlName="dateOfBirth">
+           <div *ngIf="admissionForm.get('dateOfBirth')?.touched && admissionForm.get('dateOfBirth')?.invalid" class="text-danger small">
+      Date of Birth is required.
+    </div>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Blood Group</label>
+            <select class="form-select" formControlName="bloodGroup">
+              <option value="">--Select--</option>
+              <option>A+</option>
+              <option>A-</option>
+              <option>B+</option>
+              <option>B-</option>
+              <option>O+</option>
+              <option>O-</option>
+              <option>AB+</option>
+              <option>AB-</option>
+            </select>
+          <div *ngIf="admissionForm.get('bloodGroup')?.touched && admissionForm.get('bloodGroup')?.invalid" class="text-danger small">
+      Blood Group is required.
+    </div>
+          </div>
+        </div>
+
+        <!-- Contact Info -->
+        <h5 class="text-secondary mb-3"> Contact Information</h5>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" formControlName="email" placeholder="Enter Email">
+          <div *ngIf="admissionForm.get('email')?.touched && admissionForm.get('email')?.invalid" class="text-danger small">
+      <span *ngIf="admissionForm.get('email')?.errors?.['required']">Email is required.</span>
+      <span *ngIf="admissionForm.get('email')?.errors?.['email']">Enter a valid email.</span>
+    </div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Phone Number</label>
+            <input type="text" class="form-control" formControlName="phoneNumber" placeholder="Enter Phone Number">
+           <div *ngIf="admissionForm.get('phoneNumber')?.touched && admissionForm.get('phoneNumber')?.invalid" class="text-danger small">
+      <span *ngIf="admissionForm.get('phoneNumber')?.errors?.['required']">Phone Number is required.</span>
+      <span *ngIf="admissionForm.get('phoneNumber')?.errors?.['pattern']">Enter a valid 10–15 digit number.</span>
+    </div>
+          </div>
+        </div>
+
+
+
+<div class="mb-3">
+  <label class="form-label">Present Address</label>
+  <textarea class="form-control" rows="2" formControlName="presentAddress"></textarea>
+  <div *ngIf="admissionForm.get('presentAddress')?.touched && admissionForm.get('presentAddress')?.invalid" class="text-danger small">
+    <span *ngIf="admissionForm.get('presentAddress')?.errors?.['required']">Present Address is required.</span>
+    <span *ngIf="admissionForm.get('presentAddress')?.errors?.['minlength']">Minimum 5 characters required.</span>
+  </div>
+</div>
+
+<div class="mb-3">
+  <label class="form-label">Permanent Address</label>
+  <textarea class="form-control" rows="2" formControlName="permanentAddress"></textarea>
+  <div *ngIf="admissionForm.get('permanentAddress')?.touched && admissionForm.get('permanentAddress')?.invalid" class="text-danger small">
+    <span *ngIf="admissionForm.get('permanentAddress')?.errors?.['required']">Permanent Address is required.</span>
+    <span *ngIf="admissionForm.get('permanentAddress')?.errors?.['minlength']">Minimum 5 characters required.</span>
+  </div>
+</div>
+
+      
+         <!-- Academic Info -->
+        <h5 class="text-secondary mb-3">📚 Academic Information</h5>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <label class="form-label">Class</label>
+            <select class="form-select" formControlName="classId">
+              <option value="">--Select Class--</option>
+              <option>Class 1</option>
+              <option>Class 2</option>
+              <option>Class 3</option>
+              <option>Class 4</option>
+              <option>Class 5</option>
+            </select>
+            <div *ngIf="admissionForm.get('classId')?.touched && admissionForm.get('classId')?.invalid" class="text-danger small">
+              Class is required.
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Section</label>
+            <select class="form-select" formControlName="sectionId">
+              <option value="">--Select Section--</option>
+              <option>A</option>
+              <option>B</option>
+              <option>C</option>
+            </select>
+            <div *ngIf="admissionForm.get('sectionId')?.touched && admissionForm.get('sectionId')?.invalid" class="text-danger small">
+              Section is required.
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Roll Number</label>
+            <input type="text" class="form-control" formControlName="rollNumber">
+            <div *ngIf="admissionForm.get('rollNumber')?.touched && admissionForm.get('rollNumber')?.invalid" class="text-danger small">
+              <span *ngIf="admissionForm.get('rollNumber')?.errors?.['required']">Roll Number is required.</span>
+              <span *ngIf="admissionForm.get('rollNumber')?.errors?.['pattern']">Only numbers allowed.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Parent Info -->
+        <h5 class="text-secondary mb-3">👨‍👩‍👧 Parent / Guardian Details</h5>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label class="form-label">Father's Name</label>
+            <input type="text" class="form-control" formControlName="fatherName">
+            <div *ngIf="admissionForm.get('fatherName')?.touched && admissionForm.get('fatherName')?.invalid" class="text-danger small">
+              <span *ngIf="admissionForm.get('fatherName')?.errors?.['required']">Father's Name required.</span>
+              <span *ngIf="admissionForm.get('fatherName')?.errors?.['minlength']">Minimum 3 characters.</span>
+            </div>
+          </div>
+
+
+            <div class="col-md-6">
+            <label class="form-label">Father's Phone</label>
+            <input type="text" class="form-control" formControlName="fatherPhone">
+            <div *ngIf="admissionForm.get('fatherPhone')?.touched && admissionForm.get('fatherPhone')?.invalid" class="text-danger small">
+              <span *ngIf="admissionForm.get('fatherPhone')?.errors?.['required']">Father's Phone required.</span>
+              <span *ngIf="admissionForm.get('fatherPhone')?.errors?.['pattern']">Enter 10–15 digit number.</span>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+<div class="row mb-3">
+  <div class="col-md-6">
+    <label class="form-label">Mother's Name</label>
+    <input type="text" class="form-control" formControlName="motherName">
+    <div *ngIf="admissionForm.get('motherName')?.touched && admissionForm.get('motherName')?.invalid" class="text-danger small">
+      <span *ngIf="admissionForm.get('motherName')?.errors?.['required']">Mother's Name is required.</span>
+      <span *ngIf="admissionForm.get('motherName')?.errors?.['minlength']">Minimum 3 characters required.</span>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label class="form-label">Mother's Phone</label>
+    <input type="text" class="form-control" formControlName="motherPhone">
+    <div *ngIf="admissionForm.get('motherPhone')?.touched && admissionForm.get('motherPhone')?.invalid" class="text-danger small">
+      <span *ngIf="admissionForm.get('motherPhone')?.errors?.['required']">Mother's Phone is required.</span>
+      <span *ngIf="admissionForm.get('motherPhone')?.errors?.['pattern']">Enter 10–15 digit valid number.</span>
+    </div>
+  </div>
+</div>
+
+<!-- Extra Info -->
+<h5 class="text-secondary mb-3">📝 Other Details</h5>
+<div class="row mb-3">
+  <div class="col-md-6">
+    <label class="form-label">Admission Date</label>
+    <input type="date" class="form-control" formControlName="admissionDate">
+    <div *ngIf="admissionForm.get('admissionDate')?.touched && admissionForm.get('admissionDate')?.invalid" class="text-danger small">
+      Admission Date is required.
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label class="form-label">Admission Fee</label>
+    <input type="number" class="form-control" formControlName="admissionFee" placeholder="Enter Fee">
+    <div *ngIf="admissionForm.get('admissionFee')?.touched && admissionForm.get('admissionFee')?.invalid" class="text-danger small">
+      <span *ngIf="admissionForm.get('admissionFee')?.errors?.['required']">Admission Fee is required.</span>
+      <span *ngIf="admissionForm.get('admissionFee')?.errors?.['min']">Admission Fee cannot be negative.</span>
+    </div>
+  </div>
+</div>
+
+<div class="mb-3">
+  <label class="form-label">Remarks</label>
+  <textarea class="form-control" rows="2" formControlName="remarks"></textarea>
+  <div *ngIf="admissionForm.get('remarks')?.touched && admissionForm.get('remarks')?.invalid" class="text-danger small">
+    <span *ngIf="admissionForm.get('remarks')?.errors?.['maxlength']">Maximum 200 characters allowed.</span>
+  </div>
+</div>
+
+<!-- Submit Button -->
+<div class="text-center mt-4">
+  <button type="submit" class="btn btn-success px-5" [disabled]="admissionForm.invalid">
+    Submit Admission
+  </button>
+</div>
+
+
+
+
+        
+      </form>
+    </div>
+  </div>
+</div>

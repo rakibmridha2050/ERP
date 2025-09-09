@@ -1,0 +1,30 @@
+<div class="container mt-4">
+  <h4 class="mb-3 text-bg-secondary text-center"> Student List</h4>
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Class</th>
+        <th>Section</th>
+        <th>Roll</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Admission Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students$ | async; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ student.firstName }} {{ student.lastName }}</td>
+        <td>{{ student.classId }}</td>
+        <td>{{ student.sectionId }}</td>
+        <td>{{ student.rollNumber }}</td>
+        <td>{{ student.phoneNumber }}</td>
+        <td>{{ student.email }}</td>
+        <td>{{ student.admissionDate }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

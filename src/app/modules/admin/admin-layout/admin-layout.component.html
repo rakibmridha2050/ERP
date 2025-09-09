@@ -1,0 +1,48 @@
+<!-- Top Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="#">School ERP</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNavbar"
+      aria-controls="topNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="topNavbar">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="#">Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Messages</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Settings</a></li>
+        <li class="nav-item"><a class="nav-link text-danger" href="#">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Sidebar -->
+<div class="sidebar d-lg-block d-none">
+  <a routerLink="/admin" routerLinkActive="active">📊 Dashboard</a>
+
+  <!-- Students Dropdown -->
+  <a class="dropdown-toggle" data-bs-toggle="collapse" href="#studentsMenu" role="button" aria-expanded="false">
+    👨‍🎓 Students
+  </a>
+  <div class="collapse ps-3" id="studentsMenu">
+    <a routerLink="/admin/studentList" routerLinkActive="active">List of Students</a>
+    <a routerLink="/admin/studentAdd" routerLinkActive="active">Add Student</a>
+    <!-- <a routerLink="/admin/students/delete" routerLinkActive="active">Delete Student</a> -->
+    <a routerLink="/admin/students/edit" routerLinkActive="active">Edit Student</a>
+  </div>
+
+  <a routerLink="/admin/teachers" routerLinkActive="active">👩‍🏫 Teachers</a>
+  <a routerLink="/admin/classes" routerLinkActive="active">🏫 Classes</a>
+  <a routerLink="/admin/subjects" routerLinkActive="active">📚 Subjects</a>
+  <a routerLink="/admin/exams" routerLinkActive="active">📝 Exams</a>
+  <a routerLink="/admin/fees" routerLinkActive="active">💰 Fees</a>
+  <a routerLink="/admin/attendance" routerLinkActive="active">📅 Attendance</a>
+  <a routerLink="/admin/inventory" routerLinkActive="active">📦 Inventory</a>
+  <a routerLink="/admin/settings" routerLinkActive="active">⚙ Settings</a>
+</div>
+
+<!-- Main Content -->
+<div class="content flex-grow-1">
+  <router-outlet></router-outlet>
+</div>

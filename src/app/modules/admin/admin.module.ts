@@ -17,6 +17,9 @@ import { StudentsAddComponent } from './students-add/students-add.component';
 import { SubjectsComponent } from './subjects/subjects.component';
 import { TeachersComponent } from './teachersAdd/teachers.component';
 import { TimetableComponent } from './timetable/timetable.component';
+import { TeacherListComponent } from './teacher-list/teacher-list.component';
+import { InventoryComponent } from './inventory/inventory.component';
+import { SettingComponent } from './setting/setting.component';
 
 
 @NgModule({
@@ -35,6 +38,9 @@ import { TimetableComponent } from './timetable/timetable.component';
     StudentsAddComponent,
     AdminLayoutComponent,
     StudentListComponent,
+    TeacherListComponent,
+    InventoryComponent,
+    SettingComponent,
     
   ],
   imports: [

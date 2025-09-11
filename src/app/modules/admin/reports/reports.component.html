@@ -1,1 +1,88 @@
-<p>reports works!</p>
+<div class="reports-container">
+  <h2>School Reports</h2>
+
+  <!-- Tabs -->
+  <ul class="tab-menu">
+    <li [class.active]="activeTab === 'attendance'" (click)="setActiveTab('attendance')">Attendance</li>
+    <li [class.active]="activeTab === 'exam'" (click)="setActiveTab('exam')">Exam</li>
+    <li [class.active]="activeTab === 'finance'" (click)="setActiveTab('finance')">Finance</li>
+  </ul>
+
+  <!-- Attendance Reports -->
+  <div *ngIf="activeTab === 'attendance'">
+    <h3>Attendance Reports</h3>
+    <table class="reports-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Description</th>
+          <th>Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let r of attendanceReports">
+          <td>{{ r.id }}</td>
+          <td>{{ r.description }}</td>
+          <td>{{ r.date }}</td>
+          <td>
+            <button class="btn btn-primary btn-sm" (click)="viewReport(r)">View</button>
+            <button class="btn btn-success btn-sm" (click)="downloadReport(r)">Download</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Exam Reports -->
+  <div *ngIf="activeTab === 'exam'">
+    <h3>Exam Reports</h3>
+    <table class="reports-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Description</th>
+          <th>Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let r of examReports">
+          <td>{{ r.id }}</td>
+          <td>{{ r.description }}</td>
+          <td>{{ r.date }}</td>
+          <td>
+            <button class="btn btn-primary btn-sm" (click)="viewReport(r)">View</button>
+            <button class="btn btn-success btn-sm" (click)="downloadReport(r)">Download</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Finance Reports -->
+  <div *ngIf="activeTab === 'finance'">
+    <h3>Finance Reports</h3>
+    <table class="reports-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Description</th>
+          <th>Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let r of financeReports">
+          <td>{{ r.id }}</td>
+          <td>{{ r.description }}</td>
+          <td>{{ r.date }}</td>
+          <td>
+            <button class="btn btn-primary btn-sm" (click)="viewReport(r)">View</button>
+            <button class="btn btn-success btn-sm" (click)="downloadReport(r)">Download</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

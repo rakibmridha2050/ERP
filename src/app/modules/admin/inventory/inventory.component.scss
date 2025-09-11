@@ -1,0 +1,20 @@
+.container {
+  max-width: 1000px;
+}
+
+.card-body h5 {
+  color: #0d6efd; // Bootstrap primary color
+  font-weight: 600;
+}
+
+.card-footer {
+  background-color: #f8f9fa;
+}
+
+input.form-control {
+  border-radius: 0.5rem;
+}
+
+button.btn-success {
+  border-radius: 0.5rem;
+}

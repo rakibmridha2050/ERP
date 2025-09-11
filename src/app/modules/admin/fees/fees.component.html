@@ -1,1 +1,51 @@
-<p>fees works!</p>
+<div class="container mt-5">
+  <h2 class="mb-4">School Fees Management</h2>
+
+  <!-- Add Fee Form -->
+  <div class="card mb-4 p-3">
+    <h5>Add New Fee</h5>
+    <div class="row g-3 align-items-end">
+      <div class="col-md-3">
+        <label class="form-label">Student Name</label>
+        <input type="text" class="form-control" [(ngModel)]="newFee.studentName">
+      </div>
+      <div class="col-md-2">
+        <label class="form-label">Class</label>
+        <input type="text" class="form-control" [(ngModel)]="newFee.class">
+      </div>
+      <div class="col-md-2">
+        <label class="form-label">Amount</label>
+        <input type="number" class="form-control" [(ngModel)]="newFee.amount">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Due Date</label>
+        <input type="date" class="form-control" [(ngModel)]="newFee.dueDate">
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-success w-100" (click)="addFee()">Add Fee</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fees Table -->
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Student Name</th>
+        <th>Class</th>
+        <th>Amount</th>
+        <th>Due Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let fee of fees">
+        <td>{{ fee.id }}</td>
+        <td>{{ fee.studentName }}</td>
+        <td>{{ fee.class }}</td>
+        <td>{{ fee.amount }}</td>
+        <td>{{ fee.dueDate }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

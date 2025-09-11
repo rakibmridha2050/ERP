@@ -13,6 +13,9 @@ import { StudentsAddComponent } from './students-add/students-add.component';
 import { SubjectsComponent } from './subjects/subjects.component';
 import { TeachersComponent } from './teachersAdd/teachers.component';
 import { TimetableComponent } from './timetable/timetable.component';
+import { TeacherListComponent } from './teacher-list/teacher-list.component';
+import { InventoryComponent } from './inventory/inventory.component';
+import { SettingComponent } from './setting/setting.component';
 
 const routes: Routes = [
   
@@ -22,15 +25,19 @@ const routes: Routes = [
     children: [
       { path: 'studentList', component: StudentListComponent },
       { path: 'studentAdd', component: StudentsAddComponent },
-      { path: 'teachers', component: TeachersComponent },
+      { path: 'teacherList', component: TeacherListComponent },
+      { path: 'teachers', component: TeachersComponent},
       { path: 'classes', component: ClassesComponent },
       { path: 'subjects', component: SubjectsComponent },
       { path: 'timetable', component: TimetableComponent },
       { path: 'attendance', component: AttendanceComponent },
+      { path: 'reports', component: ReportsComponent},
       { path: 'exams', component: ExamsComponent },
       { path: 'fees', component: FeesComponent },
       { path: 'reports', component: ReportsComponent },
+      { path: 'inventory', component: InventoryComponent },
       { path: 'announcements', component: AnnouncementsComponent },
+      { path: 'settings', component: SettingComponent },
       { path: '**', component: DashboardComponent }
 
     ]

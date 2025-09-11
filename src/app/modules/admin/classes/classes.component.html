@@ -1,1 +1,40 @@
-<p>classes works!</p>
+<div class="class-container">
+  <h2>School Classes</h2>
+
+  <!-- Form -->
+  <form (ngSubmit)="saveClass()" class="class-form">
+    <input type="text" [(ngModel)]="newClass.name" name="name" placeholder="Class Name" required>
+    <input type="text" [(ngModel)]="newClass.section" name="section" placeholder="Section" required>
+    <input type="text" [(ngModel)]="newClass.classTeacher" name="teacher" placeholder="Class Teacher" required>
+    <input type="number" [(ngModel)]="newClass.totalStudents" name="students" placeholder="Total Students" required>
+    <button type="submit" class="btn btn-success">{{ isEdit ? 'Update' : 'Add' }} Class</button>
+    <button type="button" class="btn btn-secondary" (click)="resetForm()">Reset</button>
+  </form>
+
+  <!-- Table -->
+  <table class="class-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Class</th>
+        <th>Section</th>
+        <th>Class Teacher</th>
+        <th>Total Students</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of classes">
+        <td>{{ c.id }}</td>
+        <td>{{ c.name }}</td>
+        <td>{{ c.section }}</td>
+        <td>{{ c.classTeacher }}</td>
+        <td>{{ c.totalStudents }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm" (click)="editClass(c)">Edit</button>
+          <button class="btn btn-danger btn-sm" (click)="deleteClass(c.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

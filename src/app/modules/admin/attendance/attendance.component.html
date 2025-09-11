@@ -1,1 +1,31 @@
-<p>attendance works!</p>
+<div class="container mt-5">
+  <h2 class="mb-4">Student Attendance</h2>
+
+  <!-- Mark All Buttons -->
+  <div class="mb-3">
+    <button class="btn btn-success me-2" (click)="markAll(true)">Mark All Present</button>
+    <button class="btn btn-danger" (click)="markAll(false)">Mark All Absent</button>
+  </div>
+
+  <!-- Attendance Table -->
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Student Name</th>
+        <th>Class</th>
+        <th>Present</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students">
+        <td>{{ student.id }}</td>
+        <td>{{ student.name }}</td>
+        <td>{{ student.class }}</td>
+        <td>
+          <input type="checkbox" [(ngModel)]="student.present">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,38 @@
+<div class="container mt-5">
+  <h2 class="mb-4 text-center">School Inventory</h2>
+
+  <!-- Add Item Form -->
+  <div class="card p-4 mb-5 shadow-sm bg-light rounded">
+    <h5 class="mb-3">Add New Item</h5>
+    <div class="row g-3">
+      <div class="col-md-4">
+        <input type="text" class="form-control" placeholder="Item Name" [(ngModel)]="newItem.name">
+      </div>
+      <div class="col-md-2">
+        <input type="number" class="form-control" placeholder="Quantity" [(ngModel)]="newItem.quantity">
+      </div>
+      <div class="col-md-3">
+        <input type="text" class="form-control" placeholder="Category" [(ngModel)]="newItem.category">
+      </div>
+      <div class="col-md-3">
+        <button class="btn btn-success w-100" (click)="addItem()">Add Item</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Inventory Cards -->
+  <div class="row g-4">
+    <div class="col-md-4" *ngFor="let item of items">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body">
+          <h5 class="card-title">{{ item.name }}</h5>
+          <p class="card-text mb-1"><strong>Quantity:</strong> {{ item.quantity }}</p>
+          <p class="card-text"><strong>Category:</strong> {{ item.category }}</p>
+        </div>
+        <div class="card-footer text-end">
+          <span class="badge bg-primary">ID: {{ item.id }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

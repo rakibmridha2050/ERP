@@ -1,1 +1,38 @@
-<p>subjects works!</p>
+<div class="department-container">
+  <h2>School Departments</h2>
+
+  <!-- Form -->
+  <form (ngSubmit)="saveDepartment()" class="department-form">
+    <input type="text" [(ngModel)]="newDepartment.name" name="name" placeholder="Department Name" required>
+    <input type="text" [(ngModel)]="newDepartment.head" name="head" placeholder="Department Head" required>
+    <input type="number" [(ngModel)]="newDepartment.totalTeachers" name="teachers" placeholder="Total Teachers"
+      required>
+    <button type="submit" class="btn btn-success">{{ isEdit ? 'Update' : 'Add' }} Department</button>
+    <button type="button" class="btn btn-secondary" (click)="resetForm()">Reset</button>
+  </form>
+
+  <!-- Table -->
+  <table class="department-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Department</th>
+        <th>Head</th>
+        <th>Total Teachers</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let d of departments">
+        <td>{{ d.id }}</td>
+        <td>{{ d.name }}</td>
+        <td>{{ d.head }}</td>
+        <td>{{ d.totalTeachers }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm" (click)="editDepartment(d)">Edit</button>
+          <button class="btn btn-danger btn-sm" (click)="deleteDepartment(d.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
